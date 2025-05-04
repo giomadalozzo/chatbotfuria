@@ -9,6 +9,10 @@ Este projeto é um chatbot desenvolvido para o Telegram que permite aos fãs int
 
 Siga o passo a passo abaixo para começar a usar o Assistente da FURIA no CS no Telegram:
 
+Clique no link: https://t.me/FuriosoChatBot
+
+OU
+
 1. **Abra o Telegram** no seu celular ou no desktop.
 
 2. **Procure pelo bot** usando a barra de busca. Digite o nome do bot **@FuriosoChatBot**
