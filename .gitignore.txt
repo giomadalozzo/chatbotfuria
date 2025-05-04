@@ -1,1 +1,36 @@
+# Arquivos Python compilados
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
 venv/
+env/
+.venv/
+.env/
+
+# Configuração de IDEs
+.vscode/
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Arquivos de ambiente
+.env
+
+# Dependências específicas do Heroku
+*.sqlite3
+instance/
+.webassets-cache
+
+# Arquivos do sistema operacional
+*.swp
+*.swo
+
+# Cache de pip
+pip-log.txt
+pip-delete-this-directory.txt
