@@ -10,7 +10,7 @@ Use os comandos abaixo para saber mais:
 /yekindar - Saiba mais sobre a nova adição do time
 /orgstats - Veja as estatísticas do time da FURIA
 /proximosjogos - Agenda dos próximos jogos
-/stats - Veja as estatísticas dos jogadores do nossa lineup
+/stats [jogador] - Veja as estatísticas dos jogadores do nossa lineup
 /streams - Link da Twitch dos nossos jogadores
 /titulos - Histórico de títulos da FURIA
 /midia - Links das nossas redes sociais
@@ -21,7 +21,7 @@ Use os comandos abaixo para saber mais:
 🔹 /start - Mensagem de boas-vindas
 🔹 /ajuda - Mostra esta mensagem de ajuda
 🔹 /titulos - Histórico de títulos da FURIA
-🔹 /partidas - Próximas partidas agendadas
+🔹 /proximosjogos - Próximas partidas agendadas
 🔹 /stats [jogador] - Estatísticas de um jogador
 🔹 /molodoy - Info sobre o novo AWP
 🔹 /yekindar - Info sobre o novo jogador
