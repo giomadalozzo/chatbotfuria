@@ -1,12 +1,26 @@
 from telegram import Update
 from telegram.ext import ContextTypes
+from utils.logger import logger
+from handlers.base_handler import BaseHandler
+from constants import Messages, URLs
 
-async def yekindar(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.chat.send_photo(photo='https://img-cdn.hltv.org/playerbodyshot/rRclDPBXIMxFv2fv0dV0J0.png?ixlib=java-2.1.0&w=400&s=2b0f6209ca40efa081852b9d1d8e01c1', caption="Novo reforço da FURIA, YEKINDAR.")
-    await update.message.reply_text(
-            "**Mareks \"YEKINDAR\" Gaļinskis**  🇱🇻\n\n"
-            "Anunciado como stand-in para o restante da temporada, YEKINDAR chega na FURIA para substituir Felipe \"skullz\" Medeiros, que foi movido para o banco. "
-            "YEKINDAR, jogador letão de 25 anos, é conhecido por seu estilo agressivo e versatilidade tática, destacando-se como entry-fragger em equipes como Virtus[.]Pro e Team Liquid. Sua chegada à FURIA representa um passo significativo na internacionalização do elenco, que agora conta com jogadores do Brasil, Cazaquistão e Letônia, e terá que adotar o inglês como idioma principal de comunicação. "
-            "O CEO da FURIA, Jaime Pádua, [comentou sobre a contratação](https://x.com/jaimepadua/status/1914794199918039232): \"A chegada do YEKINDAR traz a agressividade que precisamos, com experiência, voz ativa e a enorme possibilidade de facilitar a adaptação do nosso querido molodoy ao elenco\".\n\n",
-        parse_mode="Markdown"
-    )
+class YekindarHandler(BaseHandler):
+    """Handler about Yekindar"""
+    
+    async def handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        try:
+            await update.message.chat.send_photo(
+                photo=URLs.PLAYER_IMAGES['yekindar'],
+                caption="Jogador Yekindar, nova adição da FURIA."
+            )
+            await update.message.reply_text(
+                Messages.YEKINDAR_INFO,
+                parse_mode="Markdown"
+            )
+            logger.info(f"Yekindar info sent to {update.effective_user.id}")
+        except Exception as e:
+            logger.error("Error in yekindar handler: %s", e)
+            await update.message.reply_text(Messages.ERROR_GENERIC)
+
+def create_yekindar_handler():
+    return YekindarHandler()

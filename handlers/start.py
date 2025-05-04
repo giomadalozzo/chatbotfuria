@@ -1,17 +1,20 @@
 from telegram import Update
 from telegram.ext import ContextTypes
+from utils.logger import logger
+from constants import Messages
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-            "**BEM-VINDO AO FURIOSO BOT! 🐾**\n\n"
-            "Sou seu assistente oficial da FURIA no CS!\n"
-            "Use os comandos abaixo para saber mais:\n"
-            "/molodoy - Saiba mais sobre a chegada do novo AWP da FURIA\n"
-            "/yekindar - Saiba mais sobre a nova adição do time\n"
-            "/proximosjogos - Agenda dos próximos jogos\n"
-            "/stats - Veja as estatísticas dos jogadores do nossa lineup\n"
-            "/streams - Link da Twitch dos nossos jogadores\n"
-            "/midia - Links das nossas redes sociais\n"
-            "/ajuda - Ver comandos disponíveis",
-        parse_mode="Markdown"
-    )
+class StartHandler:
+    """Handler start command"""
+
+    async def handle(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
+        """Handle the /start command"""
+        try:
+            await update.message.reply_text(
+                Messages.WELCOME,
+                parse_mode="Markdown"
+            )
+            logger.info(f"Start command executed by {update.effective_user.id}")
+            
+        except Exception as e:
+            logger.error("Start error for {user.id}: %s", e)
+            await update.message.reply_text(Messages.ERROR_GENERIC)
